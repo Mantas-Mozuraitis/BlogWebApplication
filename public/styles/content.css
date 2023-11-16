@@ -1,0 +1,47 @@
+:root{
+    --color-one:#000000;
+    --color-two:#FFFFFF;
+    --color-three:#E5E5E5;
+}
+html{
+    font-size: 12px;
+    font-size: 100%;
+    font-family: 'Playpen Sans', cursive;
+}
+body{
+    background-color:var(--color-one);
+    color: var(--color-two);
+}
+nav a{
+    color: var(--color-two);
+    text-decoration: none;
+    border: solid 2px var(--color-two);
+    border-radius: 20px;
+    padding: 1.5rem;
+    font-size: 2rem;
+    transition: color 0.2s linear, background-color 0.2s linear;
+}
+nav a:hover{
+    color: var(--color-one);
+    background-color: var(--color-two);
+}
+form > *{
+    background-color: var(--color-one);
+    color: var(--color-two);
+    border: solid var(--color-two) 1px;
+}
+main .blog-post{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: solid var(--color-two) 2px;
+    border-radius: 20px;
+    text-align: left;
+}
+main .blog-post > *{
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+main .blog-post p:nth-child(3){
+    border-top: solid var(--color-two) 1px;
+}

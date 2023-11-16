@@ -1,0 +1,12 @@
+<%-include ("partials/header.ejs") %>
+<body>
+    <main>
+        <h1>Write a new blog post</h1>
+        <form action="/post-blog" method="POST">
+            <input type="text" name="blog-title" id="blog-title" placeholder="Enter blog title" required>
+            <input type="text" name="blog-author" id="blog-author" placeholder="Enter name of author" required>
+            <textarea name="blog-content" id="blog-content" cols="30" rows="10" placeholder="Write your blog here" required></textarea>
+            <input type="submit">
+        </form>
+    </main>
+</body>
