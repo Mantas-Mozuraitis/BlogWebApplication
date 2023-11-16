@@ -3,13 +3,13 @@
     <main>
         <h1>Blog posts</h1>
         <%if(locals.blogposts.length > 0){%>
-            <% blogposts.forEach((blog, index) => { %>
+            <% blogposts.forEach((blog, index) => { %> <!--index returns the current location in array of the blog post-->
                 <div class="blog-post">
                     <h2><%= blog.title %></h2>
                     <p>Written by <%= blog.author %></p>
                     <p><%= blog.content %></p>
                     <div class="post-options">
-                        <form method="post" action="/delete/<%= index %>">
+                        <form method="post" action="/delete/<%= index %>"> <!--passes index value of current blog within URL-->
                             <button type="submit">Delete</button>
                         </form>
                     </div>
@@ -17,7 +17,6 @@
             <% }); %>
         <%}else{%>
                 <h2>No Blogs posted yet</h2>
-            <%}%>
-        </div>
+        <%}%>
     </main>
 </body>
