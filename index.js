@@ -19,12 +19,13 @@ app.get("/index",(req,res)=>{
 app.get("/new-blog",(req,res)=>{
     res.render("create.ejs");
 })
+
 //delete request
 app.post("/delete/:id", (req, res) => {
-    const blogId = req.params.id;
-    const blogToDelete = blogpostcollection[blogId];
+    const blogId = req.params.id;//gets the id of the blogpost from named route parameter ":id", data can be passed with URL
+    const blogToDelete = blogpostcollection[blogId];//retrieves current blog post using ":id" from array
     if (blogToDelete) {
-        blogToDelete.deleteBlogPost();
+        blogToDelete.deleteBlogPost(blogId);
     }
     res.redirect("/index");
 });
@@ -47,16 +48,16 @@ class BlogPost{
         this.content = content;
     }
 
-    deleteBlogPost(){
-        const index = blogpostcollection.indexOf(this);
-
-        if (index !== -1) {
-            blogpostcollection.splice(index, 1);
+    deleteBlogPost(blogId){
+        //checks if blog post was found in the array
+        if (blogId !== -1) {
+            //splice method is used to remove blog post from array. (index-blog post location in array, 1 - deleteCount, specifies how many items are deleted form the array)
+            blogpostcollection.splice(blogId, 1);
         }
     }
 
     editBlogPost(){
-        
+
     }
 }
 
