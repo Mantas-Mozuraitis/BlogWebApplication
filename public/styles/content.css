@@ -45,3 +45,9 @@ main .blog-post > *{
 main .blog-post p:nth-child(3){
     border-top: solid var(--color-two) 1px;
 }
+
+@media (max-width:680px) {
+    nav a, main .blog-post, h1, h2{
+        font-size: smaller;
+    }
+}
