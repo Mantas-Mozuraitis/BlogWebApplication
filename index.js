@@ -29,10 +29,29 @@ app.post("/delete/:id", (req, res) => {
     }
     res.redirect("/index");
 });
+//edit request
+app.post("/edit/:id", (req, res)=>{
+    const blogId = req.params.id;//gets the id of the blogpost from named route parameter ":id", data can be passed with URL
+    const blogToUpdate = blogpostcollection[blogId];//retrieves current blog post using ":id" from array
+    res.render("create.ejs", {
+        blogtitle:blogToUpdate.title,
+        blogauthor:blogToUpdate.author,
+        blogcontent:blogToUpdate.content,
+        blogindex:blogId
+    })
+
+});
 
 app.post("/post-blog", (req,res)=>{
     var blog = new BlogPost(req.body["blog-title"],req.body["blog-author"],req.body["blog-content"]);
     blogpostcollection.push(blog);
+    res.redirect("/index");
+})
+
+app.post("/update-blog/:id", (req,res)=>{
+    const blogId = req.params.id;
+    var blog = new BlogPost(req.body["blog-title"],req.body["blog-author"],req.body["blog-content"]);
+    blog.editBlogPost(blogId);
     res.redirect("/index");
 })
 
@@ -56,8 +75,10 @@ class BlogPost{
         }
     }
 
-    editBlogPost(){
-
+    editBlogPost(currentblogindex){
+        blogpostcollection[currentblogindex].title = this.title;
+        blogpostcollection[currentblogindex].author = this.author;
+        blogpostcollection[currentblogindex].content = this.content;
     }
 }
 

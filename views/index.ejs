@@ -12,6 +12,9 @@
                         <form method="post" action="/delete/<%= index %>"> <!--passes index value of current blog within URL-->
                             <button type="submit">Delete</button>
                         </form>
+                        <form method="post" action="/edit/<%= index %>"> <!--passes index value of current blog within URL-->
+                            <button type="submit">Edit</button>
+                        </form>
                     </div>
                 </div>
             <% }); %>
