@@ -50,4 +50,7 @@ main .blog-post p:nth-child(3){
     nav a, main .blog-post, h1, h2{
         font-size: smaller;
     }
+    main .blog-post{
+        width: 90%;
+    }
 }
